@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Registration Success</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="form-container">
+    <h1>Application Registration Succeeded!</h1>
+    <p>Thank you for registering. Here are your details:</p>
+
+    <ul>
+        <li><strong>Full Name:</strong> <span th:text="${fullName}"></span></li>
+        <li><strong>Email:</strong> <span th:text="${email}"></span></li>
+        <li><strong>Phone:</strong> <span th:text="${phone}"></span></li>
+        <li><strong>Birthday:</strong> <span th:text="${birthday}"></span></li>
+        <li><strong>Job Type:</strong> <span th:text="${jobType}"></span></li>
+        <li><strong>Gender:</strong> <span th:text="${gender}"></span></li>
+        <li><strong>Last Education:</strong> <span th:text="${lastEducation}"></span></li>
+        <li><strong>Married:</strong> <span th:text="${married}"></span></li>
+        <li><strong>Indonesian Nationality:</strong> <span th:text="${nationality}"></span></li>
+        <li><strong>Note:</strong> <span th:text="${note}"></span></li>
+    </ul>
+
+    <a href="/register" class="btn">Back to Registration</a>
+</div>
+</body>
+</html>

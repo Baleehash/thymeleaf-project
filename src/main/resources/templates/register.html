@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant Registration</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="form-container">
+    <!-- Form -->
+    <h1 class="reg-ttl">Applicant Registration</h1>
+    <form action="/submitRegistration" method="post">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required th:value="${fullName}" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required th:value="${email}" />
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required th:value="${phone}" />
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required th:value="${birthday}" />
+
+        <!-- Radio Button Group for Job Type -->
+        <div class="radio-group">
+            <label>Job Type:</label>
+            <label><input type="radio" id="fulltime" name="jobType" value="fulltime" required th:checked="${jobType == 'fulltime'}" /> Full Time</label>
+            <label><input type="radio" id="parttime" name="jobType" value="parttime" required th:checked="${jobType == 'parttime'}" /> Part Time</label>
+        </div>
+
+        <!-- Radio Button Group for Gender -->
+        <div class="radio-group">
+            <label>Gender:</label>
+            <label><input type="radio" id="male" name="gender" value="male" required th:checked="${gender == 'male'}" /> Male</label>
+            <label><input type="radio" id="female" name="gender" value="female" required th:checked="${gender == 'female'}" /> Female</label>
+        </div>
+
+        <label for="lastEducation">Last Education:</label>
+        <select id="lastEducation" name="lastEducation" required th:value="${lastEducation}">
+            <option value="">--Select--</option>
+            <option value="Sekolah Menengah" th:selected="${lastEducation == 'Sekolah Menengah'}">SMA/SMK</option>
+            <option value="Sarjana" th:selected="${lastEducation == 'Sarjana'}">S1</option>
+            <option value="Magister" th:selected="${lastEducation == 'Magister'}">S2</option>
+            <option value="Doktor" th:selected="${lastEducation == 'Doktor'}">S3</option>
+        </select>
+
+        <!-- Checkbox Group -->
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="married" name="married" value="true" th:checked="${married}" /> Married?</label>
+            <label><input type="checkbox" id="nationality" name="nationality" value="true" th:checked="${nationality}" /> Indonesian Nationality?</label>
+        </div>
+
+        <label for="note">Note:</label>
+        <textarea id="note" name="note" rows="4" cols="40" placeholder="Additional notes" th:text="${note}"></textarea>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>
